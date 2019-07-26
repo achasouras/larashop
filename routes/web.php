@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Administrator area
+Route::middleware(['auth','admin'])->prefix('control')->group(function () {
+
+	// Administrator home
+	Route::get('/', 'Control\Control@home')->name('control');
+
+});
