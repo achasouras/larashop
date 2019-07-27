@@ -34,13 +34,11 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
 			$table->string('value');
 
-            $table->integer('product_id')->unsigned()->nullable();
-            sleep(1);
-			$table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('product_id')->unsigned()->index();
+			$table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
-			$table->integer('attribute_id')->unsigned()->nullable();
-			sleep(1);
-			$table->foreign('attribute_id')->references('id')->on('attributes');
+			$table->bigInteger('attribute_id')->unsigned()->index();
+			$table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
 
 			$table->timestamps();
         });
@@ -55,7 +53,7 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('product_attributes');
-        Schema::dropIfExists('product_variation');
+        Schema::dropIfExists('attributes');
         Schema::dropIfExists('products');
     }
 }
