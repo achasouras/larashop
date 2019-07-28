@@ -1,25 +1,54 @@
-<html>
-    <head>
-        {!! MaterializeCSS::include_full() !!}
-    </head>
-    <body>
+@extends('layouts.control.app')
 
+@section('title')
+    Products
+@endsection
+
+@section('control.menu.main.logoside')
+ Products
+@endsection
+
+@section('body_content')
     @if(Session::has('message'))
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
 
-    Basic Product view: <br>
-        <a href="{{route('create_product')}}">Create product</a> <br>
-        <a href="{{route('create_attribute')}}">Create attribute</a> <br>
-        <br>
+    <a href="{{route('create_product')}}">Create product</a> |
+    <a href="{{route('create_attribute')}}">Create attribute</a> <br>
+    <br>
 
-        Products: <br>
-        @php
-            foreach ($products as $product){
+    <table class="striped highlight control_table">
+        <thead>
+            <tr>
 
-                echo '<br>' . $product->name;
+    @php
 
+        $columns = Illuminate\Support\Facades\Schema::getColumnListing('products'); // users table
+        foreach ($columns as $column){
+        	echo '<th>' . $column . '</th>';
+        }
+    @endphp
+            </tr>
+        <tbody>
+        <tbody>
+    @php
+        $column_count = count($columns);
+
+        foreach ($products as $product){
+            echo '<tr>';
+            foreach ($columns as $column){
+                echo '<td>' . $product->$column . '</td>';
             }
-        @endphp
-    </body>
-</html>
+            echo '</tr>';
+        }
+
+        echo '</tr>';
+        echo '';
+
+    @endphp
+        </tbody>
+    </table>
+@endsection
+
+@section('footer_content')
+@endsection

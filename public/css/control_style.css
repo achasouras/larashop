@@ -1,0 +1,48 @@
+.brand-logo{
+    margin-left: 5%;
+}
+
+/*sidebar*/
+.row > .control_sidebar{
+    height: 100%;
+    padding: 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.19), 0 1px 5px rgba(0,0,0,0.23);
+}
+.control_sidebar > * {
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+.control_sidebar_title{
+    font-size: 24px;
+}
+
+.control_sidebar_items{
+    padding: 0;
+    margin: 10% 0 0 0;
+}
+
+.control_sidebar_item{
+    padding: 10px 0 10px 10%;
+}
+
+.control_sidebar_item:hover {
+    border-radius: 4px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.control_sidebar_item > i {
+    position: relative;
+    top: 10px;
+}
+
+/*Main backend page*/
+.row > .control_main_contain{
+    margin-top: 5%;
+    padding: 0 2% 0 2%;
+}
+
+/*Control tables*/
+.control_table{
+    font-size: 14px;
+}
