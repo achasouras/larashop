@@ -1,17 +1,33 @@
-Create product: <br><br>
-<form action="{{route('create_product_submit')}}" method="post">
-@csrf
-    <input type="text" name="name" placeholder="Name*" required><br>
-@php
+@extends('layouts.control.app')
 
-foreach ($attributes as $attribute){
+@section('title')
+    Control - Create product
+@endsection
 
-$attribute->parent_required ? $required = ' required':$required = '';
+@section('control.menu.main.logoside')
+    Create product
+@endsection
 
-echo '<input type="text"' . $required . ' name="attid' . $attribute->id . '" placeholder="' . $attribute->name . ($required!==''?'*':'') . '"></input><br>';
+@section('body_content')
+    <form action="{{route('create_product_submit')}}" method="post">
+        @csrf
+        <input type="text" name="name" placeholder="Name*" required><br>
+        @php
 
-}
-@endphp
-<br>
-<button>Create</button>
-</form>
+            foreach ($attributes as $attribute){
+
+            $attribute->parent_required ? $required = ' required':$required = '';
+
+            echo '<input type="text"' . $required . ' name="attid' . $attribute->id . '" placeholder="' . $attribute->name . ($required!==''?'*':'') . '"></input><br>';
+
+            }
+        @endphp
+        <br>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+@endsection
+
+@section('footer_content')
+@endsection

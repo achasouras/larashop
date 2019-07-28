@@ -2,7 +2,7 @@
     margin-left: 5%;
 }
 
-/*sidebar*/
+/* sidebar*/
 .row > .control_sidebar{
     height: 100%;
     padding: 0;
@@ -18,11 +18,15 @@
 }
 
 .control_sidebar_items{
+
     padding: 0;
     margin: 10% 0 0 0;
 }
 
 .control_sidebar_item{
+    display: block;
+    vertical-align: middle;
+
     padding: 10px 0 10px 10%;
 }
 
@@ -31,18 +35,33 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.control_sidebar_item > i {
+.control_sidebar_label{
+    display: inline-block;
     position: relative;
-    top: 10px;
+    top: -5px;
+    margin-left: 5px;
 }
 
-/*Main backend page*/
+/* Main backend page*/
 .row > .control_main_contain{
     margin-top: 5%;
     padding: 0 2% 0 2%;
 }
 
-/*Control tables*/
+/* Control tables*/
 .control_table{
     font-size: 14px;
+}
+
+/* Alerts*/
+.alert-info{
+    color: #3ca24b;
+}
+
+/* Buttons*/
+.btn{
+    background-color: #039be5;
+}
+.btn:hover{
+    background-color: #ee6e73;
 }

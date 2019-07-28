@@ -1,14 +1,45 @@
-@if(Session::has('message'))
-    <p class="alert alert-info">{{ Session::get('message') }}</p>
-@endif
+@extends('layouts.control.app')
 
-Attribute create: <br>
+@section('title')
+    Control - Create Attribute
+@endsection
 
-<form method="post" action="{{route('create_attribute_submit')}}">
-    <input type="text" name="name" placeholder="Name" required> <br>
-    <input type="text" name="position" placeholder="position"> <br>
-    Required on parent <input type="checkbox" name="parent_required"> <br>
-    Required on variation <input type="checkbox" name="variation_required"> <br>
-    @csrf
-    <button>Create</button>
-</form>
+@section('control.menu.main.logoside')
+    Create attribute
+@endsection
+
+@section('body_content')
+
+    @if(Session::has('message'))
+        <p class="alert alert-info">{{ Session::get('message') }}</p>
+    @endif
+
+    Attribute create: <br>
+
+    <form method="post" action="{{route('create_attribute_submit')}}">
+        <input type="text" name="name" placeholder="Name *" required> <br>
+        <input type="text" name="position" placeholder="position"> <br>
+
+        <p>
+            <label>
+                <input type="checkbox" class="filled-in" name="parent_required" />
+                <span>Required on parent</span>
+            </label>
+        </p>
+
+        <p>
+            <label>
+                <input type="checkbox" class="filled-in" name="variation_required" />
+                <span>Required on variation</span>
+            </label>
+        </p>
+
+        @csrf
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+@endsection
+
+@section('footer_content')
+@endsection
