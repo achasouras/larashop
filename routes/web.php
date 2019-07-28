@@ -25,4 +25,13 @@ Route::middleware(['auth','admin'])->prefix('control')->group(function () {
 	// Administrator home
 	Route::get('/', 'Control\Control@home')->name('control');
 
+	// Product related links
+	Route::get('products', 'Control\Products@index')->name('products');
+	Route::get('products/create', 'Control\Products@create_product_view')->name('create_product');
+	Route::post('products/create', 'Control\Products@create_product_submit')->name('create_product_submit');
+
+	// Attributes
+	Route::get('attributes/create', 'Control\Products@create_attribute_view')->name('create_attribute');
+	Route::post('attributes/create', 'Control\Products@create_attribute_submit')->name('create_attribute_submit');
+
 });
