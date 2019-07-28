@@ -1,5 +1,7 @@
 <html>
-
+    <head>
+        {!! MaterializeCSS::include_full() !!}
+    </head>
     <body>
 
     @if(Session::has('message'))

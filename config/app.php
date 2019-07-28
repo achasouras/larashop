@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+		// Materialise service provider
+		Skydiver\LaravelMaterializeCSS\MaterializeCSSServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+		// Materialise alias
+		'MaterializeCSS' => Skydiver\LaravelMaterializeCSS\MaterializeCSS::class,
     ],
 
 ];
