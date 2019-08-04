@@ -180,6 +180,10 @@ return [
 		// Helpers provider
 		App\Providers\HelperServiceProvider::class,
 
+		//Actions and Filters
+		TorMorten\Eventy\EventServiceProvider::class,
+		TorMorten\Eventy\EventBladeServiceProvider::class,
+
     ],
 
     /*
@@ -235,6 +239,8 @@ return [
 		'MaterializeCSS' => Skydiver\LaravelMaterializeCSS\MaterializeCSS::class,
 		// Helper provider alias
 		'ProductHelper' => App\Helpers\Product::class,
+		//Actions and Filters
+		'Eventy' => TorMorten\Eventy\Facades\Events::class,
     ],
 
 ];
