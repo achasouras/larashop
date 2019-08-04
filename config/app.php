@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+		// Helpers provider
+		App\Providers\HelperServiceProvider::class,
+
     ],
 
     /*
@@ -230,6 +233,8 @@ return [
 
 		// Materialise alias
 		'MaterializeCSS' => Skydiver\LaravelMaterializeCSS\MaterializeCSS::class,
+		// Helper provider alias
+		'ProductHelper' => App\Helpers\Product::class,
     ],
 
 ];

@@ -35,3 +35,12 @@ Route::middleware(['auth','admin'])->prefix('control')->group(function () {
 	Route::post('attributes/create', 'Control\Products@create_attribute_submit')->name('create_attribute_submit');
 
 });
+
+//// Product routing
+$isProduct = ProductHelper::check_product_routing(request()->path());
+
+if($isProduct){
+	Route::get(request()->path(), function (){
+		echo 'Basic product routing!';
+	});
+}
